@@ -1,0 +1,26 @@
+<h3>Heroes List</h3>
+<hr>
+
+<div *ngIf = "deletedHero; else nothingWasDeleted">
+  <!-- Le decimos al div que lo muestre si hay algun heroe borrado -->
+  <!-- con el "else" le decimos haga
+  referencia a la etiqueta declarada mas abajo y la ejecute -->
+  <h3>Hero deleted<small class="text-danger"> {{deletedHero}} </small></h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+<h3>Nothing deleted</h3>
+</ng-template>
+<!-- en la etiqueta de ng-template establecemos el nombre de la referencia -->
+
+<button
+(click)="removeLastHero()"
+class="btn btn-outline-danger">
+  Delete hero
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+  <!-- creamos una etiqueta li para una lista e iteramos con *ngFor el array de strings
+  llamado heroNames creado en el .ts, luego entre corchetes ponemos el name -->
+</ul>
