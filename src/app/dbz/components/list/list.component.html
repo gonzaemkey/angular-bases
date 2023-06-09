@@ -1,0 +1,25 @@
+<h4>List</h4>
+    <ul class="list-group">
+      <li *ngFor="let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;"
+      class="list-group-item" [ngClass]="{ 'list-group-item-success': isFirst }">
+      <!-- con el ngClass determinamos que va a obtener la clase el elemento que yo determine
+      de la lista. Le hago referencia despues de los dos puntos. -->
+      <!-- dentro del ngFor podemos hacer varios bucles. En este caso hacemos
+      uno que obtenga el valor index, que se genera automaticamente dentro del ngFOr -->
+      <span class="text-primary">{{ i+1 }} </span>
+
+      <!-- Debemos evitar usar mucha lógica en el html -->
+
+      <span>{{ character.name }} - </span>
+
+      <strong> Power: </strong>
+
+      <span>{{ character.power }}</span>
+
+      </li>
+
+    </ul>
